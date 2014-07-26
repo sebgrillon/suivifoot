@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 26 Juillet 2014 à 18:53
+-- Généré le: Sam 26 Juillet 2014 à 20:03
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -232,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `participmatch` (
 --
 
 CREATE TABLE IF NOT EXISTS `personne` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `prenom` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -247,8 +247,17 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `tel` int(11) NOT NULL,
   `photo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  UNIQUE KEY `username` (`username`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `personne`
+--
+
+INSERT INTO `personne` (`id`, `nom`, `prenom`, `username`, `password`, `date_naiss`, `adresse1`, `adresse2`, `cp`, `ville`, `pays`, `mail`, `tel`, `photo`) VALUES
+(1, 'GRILLON', 'Sébastien', 'seb', 'admin', '1977-10-22', '', '', 0, '', 'France', 'sebag@libertysurf.fr', 0, ''),
+(2, 'ROBERT', 'Timothée', 'timo', 'admin', '0000-00-00', '', '', 0, '', 'France', '', 0, '');
 
 -- --------------------------------------------------------
 
