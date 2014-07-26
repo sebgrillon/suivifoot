@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 26 Juillet 2014 à 16:15
+-- Généré le: Sam 26 Juillet 2014 à 18:53
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -28,13 +28,9 @@ USE `footballmanagement`;
 -- Structure de la table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `id_personne` int(11) NOT NULL,
-  `profil` int(11) NOT NULL,
-  `username` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
-  UNIQUE KEY `username` (`username`)
+  `profil` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -43,7 +39,6 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Structure de la table `categorie`
 --
 
-DROP TABLE IF EXISTS `categorie`;
 CREATE TABLE IF NOT EXISTS `categorie` (
   `id` int(11) NOT NULL,
   `intitule` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -62,7 +57,6 @@ CREATE TABLE IF NOT EXISTS `categorie` (
 -- Structure de la table `club`
 --
 
-DROP TABLE IF EXISTS `club`;
 CREATE TABLE IF NOT EXISTS `club` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -81,7 +75,6 @@ CREATE TABLE IF NOT EXISTS `club` (
 -- Structure de la table `educateur`
 --
 
-DROP TABLE IF EXISTS `educateur`;
 CREATE TABLE IF NOT EXISTS `educateur` (
   `id_personne` int(11) NOT NULL,
   `id_saison` int(11) NOT NULL,
@@ -97,7 +90,6 @@ CREATE TABLE IF NOT EXISTS `educateur` (
 -- Structure de la table `entrainement`
 --
 
-DROP TABLE IF EXISTS `entrainement`;
 CREATE TABLE IF NOT EXISTS `entrainement` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
@@ -113,7 +105,6 @@ CREATE TABLE IF NOT EXISTS `entrainement` (
 -- Structure de la table `equipe`
 --
 
-DROP TABLE IF EXISTS `equipe`;
 CREATE TABLE IF NOT EXISTS `equipe` (
   `id` int(11) NOT NULL,
   `id_saison` int(11) NOT NULL,
@@ -130,7 +121,6 @@ CREATE TABLE IF NOT EXISTS `equipe` (
 -- Structure de la table `evenement`
 --
 
-DROP TABLE IF EXISTS `evenement`;
 CREATE TABLE IF NOT EXISTS `evenement` (
   `id` int(11) NOT NULL,
   `nom` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -147,7 +137,6 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 -- Structure de la table `indisponibilite`
 --
 
-DROP TABLE IF EXISTS `indisponibilite`;
 CREATE TABLE IF NOT EXISTS `indisponibilite` (
   `id_personne` int(11) NOT NULL,
   `motif` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
@@ -163,7 +152,6 @@ CREATE TABLE IF NOT EXISTS `indisponibilite` (
 -- Structure de la table `joueur`
 --
 
-DROP TABLE IF EXISTS `joueur`;
 CREATE TABLE IF NOT EXISTS `joueur` (
   `id_personne` int(11) NOT NULL,
   `id_saison` int(11) NOT NULL,
@@ -179,7 +167,6 @@ CREATE TABLE IF NOT EXISTS `joueur` (
 -- Structure de la table `match`
 --
 
-DROP TABLE IF EXISTS `match`;
 CREATE TABLE IF NOT EXISTS `match` (
   `id` int(11) NOT NULL,
   `date_match` datetime NOT NULL,
@@ -204,7 +191,6 @@ CREATE TABLE IF NOT EXISTS `match` (
 -- Structure de la table `participations`
 --
 
-DROP TABLE IF EXISTS `participations`;
 CREATE TABLE IF NOT EXISTS `participations` (
   `id_participation` int(11) NOT NULL AUTO_INCREMENT,
   `libelle` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -217,7 +203,6 @@ CREATE TABLE IF NOT EXISTS `participations` (
 -- Structure de la table `participentrainement`
 --
 
-DROP TABLE IF EXISTS `participentrainement`;
 CREATE TABLE IF NOT EXISTS `participentrainement` (
   `id_personne` int(11) NOT NULL,
   `id_entrainement` int(11) NOT NULL,
@@ -230,7 +215,6 @@ CREATE TABLE IF NOT EXISTS `participentrainement` (
 -- Structure de la table `participmatch`
 --
 
-DROP TABLE IF EXISTS `participmatch`;
 CREATE TABLE IF NOT EXISTS `participmatch` (
   `id_personne` int(11) NOT NULL,
   `id_match` int(11) NOT NULL,
@@ -247,11 +231,12 @@ CREATE TABLE IF NOT EXISTS `participmatch` (
 -- Structure de la table `personne`
 --
 
-DROP TABLE IF EXISTS `personne`;
 CREATE TABLE IF NOT EXISTS `personne` (
   `id` int(11) NOT NULL,
   `nom` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `prenom` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `date_naiss` date NOT NULL,
   `adresse1` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `adresse2` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -261,7 +246,8 @@ CREATE TABLE IF NOT EXISTS `personne` (
   `mail` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `tel` int(11) NOT NULL,
   `photo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -270,7 +256,6 @@ CREATE TABLE IF NOT EXISTS `personne` (
 -- Structure de la table `saison`
 --
 
-DROP TABLE IF EXISTS `saison`;
 CREATE TABLE IF NOT EXISTS `saison` (
   `id_saison` varchar(9) COLLATE utf8_unicode_ci NOT NULL,
   `debut` date NOT NULL,
@@ -285,7 +270,6 @@ CREATE TABLE IF NOT EXISTS `saison` (
 -- Structure de la table `typematch`
 --
 
-DROP TABLE IF EXISTS `typematch`;
 CREATE TABLE IF NOT EXISTS `typematch` (
   `id` int(11) NOT NULL,
   `intitule` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
