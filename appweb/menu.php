@@ -1,9 +1,10 @@
 <?php
 session_start();
 include "../tools/connexbase.php";
+include '../tools/textes.php';
 //include "../tools/fonctions.php";
 
-include 'Entete.php';
+include 'entete.php';
 ?>
 <body>Test réussi !
 <?php 
