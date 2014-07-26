@@ -3,6 +3,7 @@ echo"<html>";
 echo "<head>";
 echo "<title>".$t_titre_site."</title>";
 echo "<link href='../css/general.css' rel='stylesheet' type='text/css'>";
+echo "<script src='../js/suivifoot.js' type='text/javascript'></script>";
 echo "<meta http-equiv='content-type' content='text/html; charset=UTF-8'/>";
 echo "</head>";
 echo "<body>";
