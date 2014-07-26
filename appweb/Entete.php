@@ -13,5 +13,5 @@ mysql_select_db("footballmanagement") or die('Base de donnée - mysql_select_db: 
 
 //Bande haute du site aux couleurs du club, avec le logo
 echo"<html>
-	<head>Equipe de foot Test</head>";
+	<head><title>Equipe de foot Test</title></head>";
 ?>
