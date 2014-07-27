@@ -1,9 +1,9 @@
 <?php
 session_start();
 $_SESSION['id'] = '';
-/*$_SESSION['nom'] = '';
+$_SESSION['nom'] = '';
 $_SESSION['prenom'] = '';
-$_SESSION['droits'] = '';*/
+/*$_SESSION['droits'] = '';*/
 $_SESSION['dernier_acces'] = '';
 $_SESSION['ipaddr'] = '';
 /*$_SESSION['identite'] = '';
@@ -29,9 +29,9 @@ else
 	$_SESSION['dernier_acces'] = time();
 	$_SESSION['ipaddr'] = $_SERVER['REMOTE_ADDR'];
 	$_SESSION['id'] = $r_user[0];
-/*	$_SESSION['nom'] = $rep1[1];
+	$_SESSION['nom'] = $rep1[1];
 	$_SESSION['prenom'] = $rep1[2];
-	$_SESSION['droits'] = $rep1[5];
+/*	$_SESSION['droits'] = $rep1[5];
 	
 
 	$identite = html_entity_decode($_SESSION['nom'], ENT_QUOTES | ENT_IGNORE, "ISO-8859-1").' '.html_entity_decode($_SESSION['prenom'], ENT_QUOTES | ENT_IGNORE, "ISO-8859-1").' / ';
@@ -42,7 +42,7 @@ else
 	$_SESSION['identite'] = $identite;
 */
 
-	header('Refresh: 0; url=\'menu.php\''); 
+	header('Refresh: 0; url=\'menu.php\'');
 	ob_flush();
 }
 ?>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 26 Juillet 2014 à 20:03
+-- Généré le: Dim 27 Juillet 2014 à 14:41
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -30,8 +30,18 @@ USE `footballmanagement`;
 
 CREATE TABLE IF NOT EXISTS `admin` (
   `id_personne` int(11) NOT NULL,
-  `profil` int(11) NOT NULL
+  `profil` int(11) NOT NULL,
+  PRIMARY KEY (`id_personne`),
+  UNIQUE KEY `id_personne` (`id_personne`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Contenu de la table `admin`
+--
+
+INSERT INTO `admin` (`id_personne`, `profil`) VALUES
+(1, 1000),
+(2, 1000);
 
 -- --------------------------------------------------------
 
@@ -76,13 +86,15 @@ CREATE TABLE IF NOT EXISTS `club` (
 --
 
 CREATE TABLE IF NOT EXISTS `educateur` (
+  `id_educateur` int(11) NOT NULL AUTO_INCREMENT,
   `id_personne` int(11) NOT NULL,
   `id_saison` int(11) NOT NULL,
   `id_club` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL,
   `id_equipe` int(11) NOT NULL,
-  `fonction` varchar(40) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `fonction` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_educateur`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -153,13 +165,15 @@ CREATE TABLE IF NOT EXISTS `indisponibilite` (
 --
 
 CREATE TABLE IF NOT EXISTS `joueur` (
+  `id_joueur` int(11) NOT NULL AUTO_INCREMENT,
   `id_personne` int(11) NOT NULL,
   `id_saison` int(11) NOT NULL,
   `id_club` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL,
   `pied_fort` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
-  `position_pref` varchar(20) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `position_pref` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_joueur`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -249,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `personne` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `personne`
