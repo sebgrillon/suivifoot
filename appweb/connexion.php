@@ -1,12 +1,12 @@
 <?php
 session_start();
-/*$_SESSION['id'] = '';
-$_SESSION['nom'] = '';
+$_SESSION['id'] = '';
+/*$_SESSION['nom'] = '';
 $_SESSION['prenom'] = '';
-$_SESSION['droits'] = '';
-$_SESSION['dernier_acces'] = ''; //time();
-$_SESSION['ipaddr'] = ''; //$_SERVER['REMOTE_ADDR'];
-$_SESSION['identite'] = '';
+$_SESSION['droits'] = '';*/
+$_SESSION['dernier_acces'] = '';
+$_SESSION['ipaddr'] = '';
+/*$_SESSION['identite'] = '';
 */
 include "../tools/connexbase.php";
 //include "../tools/fonctions.php";
@@ -15,7 +15,7 @@ $q_user = $bdd->query('SELECT * FROM personne WHERE username=\''.$_POST['id'].'\
 $r_user = $q_user->fetch();
 if (!$r_user)
 {
-include 'Entete.php';
+include 'entete.php';
 ?>
 		<div class="erreur">Nom d'utilisateur ou mot de passe erron&eacute; ! Vous serez redirig&eacute; vers la page d'acc&eagrave;s dans quelques secondes...</div>
 	</body>
@@ -28,8 +28,8 @@ else
 {
 	$_SESSION['dernier_acces'] = time();
 	$_SESSION['ipaddr'] = $_SERVER['REMOTE_ADDR'];
-/*	$_SESSION['id'] = $rep1[0];
-	$_SESSION['nom'] = $rep1[1];
+	$_SESSION['id'] = $r_user[0];
+/*	$_SESSION['nom'] = $rep1[1];
 	$_SESSION['prenom'] = $rep1[2];
 	$_SESSION['droits'] = $rep1[5];
 	
