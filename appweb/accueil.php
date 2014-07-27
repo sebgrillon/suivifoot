@@ -4,7 +4,7 @@ include '../tools/connexbase.php';
 include '../tools/textes.php';
 include 'entete.php';
 ?>
-<!-- <nav></nav> -->
+<nav></nav>
 <section>
 	<form class="login" name="form1" id="form1" method="post" action="/bot?connexion.php">
 		<fieldset class="login">

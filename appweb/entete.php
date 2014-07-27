@@ -8,7 +8,7 @@ echo "<meta http-equiv='content-type' content='text/html; charset=UTF-8'/>";
 echo "</head>";
 echo "<body>";
 echo "<header>";
-echo "<h1>".$t_titre_banniere."</h1>";
+echo "<h1 class='entete'>".$t_titre_banniere."</h1>";
 echo "</header>";
 
 //Bande haute du site aux couleurs du club, avec le logo
